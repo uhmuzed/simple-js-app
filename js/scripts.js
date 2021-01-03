@@ -1,6 +1,10 @@
 alert("Hello World");
 
-let myName = "Bob";
+let favoriteFood = "Ramen";
+document.write(favoriteFood);
+
+//practice
+/*let myName = "Bob";
 document.write(myName);
 myName = "John Doe";
 document.write(myName);
@@ -11,4 +15,4 @@ document.write(simpleAddition);
 let size = 100;
 let doubleSize = size * 2;
 let minSize = (doubleSize * 2) - (size / 2);
-document.write(minSize);
+document.write(minSize);*/
