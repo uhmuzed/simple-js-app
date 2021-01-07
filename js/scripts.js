@@ -28,3 +28,14 @@ let pokemonList = [
     height: 9.06
   }
 ];
+
+//Iterates name and height of Pokemon
+for (let i = 0; i < pokemonList.length; i++) {
+  if (pokemonList[i].height > 7) {
+    document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ") - 'Wow, that's huge!'");
+  } else if (pokemonList[i].height < 1 ) {
+    document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ") - 'Awww, that's smol.'");
+  } else {
+    document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ") - 'That's average-size.'");
+  }
+}
