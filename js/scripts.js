@@ -43,10 +43,10 @@ let pokeSmol = "That's average-size.";
 //Iterates name and height of Pokemon
 for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height > 7) {
-    document.write("<br>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + pokeBig);
+    document.write(`<br>${pokemonList[i].name} (height: ${pokemonList[i].height}) ${pokeBig}`);
   } else if (pokemonList[i].height <= 1) {
-    document.write("<br>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + pokeAvg);
+    document.write(`<br>${pokemonList[i].name} (height: ${pokemonList[i].height}) ${pokeSmol}`);
   } else {
-    document.write("<br>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + pokeSmol);
+    document.write(`<br>${pokemonList[i].name} (height: ${pokemonList[i].height}) ${pokeAvg}`);
   }
 }
