@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+  linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8)
+  ),
+  url(../img/pokeball.png);
+background-size: cover;
+font-family: 'Permanent Marker', cursive;
+color: white;
+}
+
+.title-bar {
+  text-align: center;
+}
+
+.glow {
+  font-size: 60px;
+  color: #FFCB05;
+  text-align: center;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #003A70, 0 0 40px #003A70, 0 0 50px #003A70, 0 0 60px #003A70;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #3D7DCA, 0 0 40px #3D7DCA, 0 0 50px #3D7DCA, 0 0 60px #3D7DCA, 0 0 70px #3D7DCA;
+  }
+}
+
+p {
+  color: white;
+}
