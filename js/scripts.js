@@ -1,4 +1,5 @@
-let pokemonList = [
+let pokeRepository = (function () {
+  let pokemonList = [
   {
     name: "Dedenne",
     dexNumber: 702,
@@ -36,17 +37,40 @@ let pokemonList = [
   }
 ];
 
-//Declare variables
-let pokeBig = "Wow, that's huge!";
-let pokeAvg = "Awww, that's smol.";
-let pokeSmol = "That's average-size.";
-//Iterates name and height of Pokemon
-for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 7) {
-    document.write(`<br>${pokemonList[i].name} (height: ${pokemonList[i].height}) ${pokeBig}`);
-  } else if (pokemonList[i].height <= 1) {
-    document.write(`<br>${pokemonList[i].name} (height: ${pokemonList[i].height}) ${pokeSmol}`);
-  } else {
-    document.write(`<br>${pokemonList[i].name} (height: ${pokemonList[i].height}) ${pokeAvg}`);
-  }
+function add(pokemon) {
+  //typeof pokemon === "object" && !== null ? pokemonList.push(pokemon) : "Not allowed.";
+  pokemonList.push(pokemon);
 }
+
+function getAll() {
+  return pokemonList;
+}
+
+return {
+  add: add,
+  getAll: getAll
+};
+})();
+
+pokeRepository.add({
+  name: "Pidgey",
+  dexNumber: 16,
+  type: ["Normal", "Flying"],
+  category: "Tiny Bird",
+  height: 1.00
+});
+
+pokeRepository.getAll().forEach(function(pokemon) {
+  //set height variables
+  let pokeBig = "Wow, that's big!";
+  let pokeAvg = "That's average-sized.";
+  let pokeSmol = "Aww, that's smol.";
+
+  if (pokemon.height > 7) {
+    document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - ${pokeBig}</p>`);
+  } else if (pokemon.height <= 1) {
+    document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - ${pokeSmol}</p>`);
+  } else {
+    document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - ${pokeAvg}</p>`);
+  }
+});
