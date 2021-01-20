@@ -38,17 +38,45 @@ let pokeRepository = (function () {
 ];
 
 function add(pokemon) {
-  //typeof pokemon === "object" && !== null ? pokemonList.push(pokemon) : "Not allowed.";
-  pokemonList.push(pokemon);
+  if (
+    typeof pokemon === "object" &&
+    "name" in pokemon &&
+    "dexNumber" in pokemon &&
+    "type" in pokemon &&
+    "category" in pokemon &&
+    "height" in pokemon
+  ) {
+    pokemonList.push(pokemon);
+  } else {
+    console.log("Incorrect input");
+  }
 }
 
 function getAll() {
   return pokemonList;
 }
 
+function addDexEntry(pokemon) {
+  //target ul class
+  let dex = document.querySelector(".dex");
+  //create li element in ul
+  let dexItem = document.createElement("li");
+  //create button in li
+  let pokeButton = document.createElement("button");
+  //make button text the Pokemon name
+  pokeButton.innerText = pokemon.name;
+  //add class to pokeButton
+  pokeButton.classList.add("poke-button");
+  //append button to li
+  dexItem.appendChild(pokeButton);
+  //append li to ul
+  dex.appendChild(dexItem);
+}
+
 return {
   add: add,
-  getAll: getAll
+  getAll: getAll,
+  addDexEntry: addDexEntry
 };
 })();
 
@@ -61,16 +89,5 @@ pokeRepository.add({
 });
 
 pokeRepository.getAll().forEach(function(pokemon) {
-  //set height variables
-  let pokeBig = "Wow, that's big!";
-  let pokeAvg = "That's average-sized.";
-  let pokeSmol = "Aww, that's smol.";
-
-  if (pokemon.height > 7) {
-    document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - ${pokeBig}</p>`);
-  } else if (pokemon.height <= 1) {
-    document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - ${pokeSmol}</p>`);
-  } else {
-    document.write(`<p>${pokemon.name} (height: ${pokemon.height}) - ${pokeAvg}</p>`);
-  }
+  pokeRepository.addDexEntry(pokemon);
 });
