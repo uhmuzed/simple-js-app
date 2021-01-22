@@ -26,7 +26,7 @@ color: white;
   -moz-animation: glow 2s ease-in-out infinite alternate;
   animation: glow 2s ease-in-out infinite alternate;
 }
-
+/*title animation*/
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #003A70, 0 0 40px #003A70, 0 0 50px #003A70, 0 0 60px #003A70;
