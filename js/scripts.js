@@ -71,13 +71,13 @@ function addDexEntry(pokemon) {
   dexItem.appendChild(pokeButton);
   //append li to ul
   dex.appendChild(dexItem);
-
+  //event listener for buttons
   pokeButton.addEventListener("click", function() {
     showPokeInfo(pokemon);
   })
 }
 
-functon showPokeInfo(pokemon) {
+function showPokeInfo(pokemon) {
   console.log(pokemon);
 }
 
