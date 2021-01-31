@@ -15,10 +15,6 @@ font-family: 'Permanent Marker', cursive;
 color: white;
 }
 
-.title-bar {
-  text-align: center;
-}
-
 .glow {
   font-size: 70px;
   color: #FFCB05;
@@ -35,6 +31,37 @@ color: white;
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #3D7DCA, 0 0 40px #3D7DCA, 0 0 50px #3D7DCA, 0 0 60px #3D7DCA, 0 0 70px #3D7DCA;
   }
+}
+
+.gen1-title {
+  color: #FFCB05;
+  text-align: center;
+}
+
+.box {
+  margin: 0 auto;
+  width: 250px;
+  height: 400px;
+  overflow: auto;
+}
+
+/*scrollbar css*/
+.box::-webkit-scrollbar {
+  width: 10px;
+}
+
+.box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.box::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #FFCB05;
+  height: 50px;
+}
+
+.dex {
+  padding: 0;
 }
 
 .dex li {
