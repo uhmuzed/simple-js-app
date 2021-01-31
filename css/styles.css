@@ -10,6 +10,7 @@ body {
   ),
   url(../img/pokeball.png);
 background-size: cover;
+background-attachment: fixed;
 font-family: 'Permanent Marker', cursive;
 color: white;
 }
@@ -41,8 +42,8 @@ color: white;
 }
 
 .poke-button {
-  width: 200px;
-  height: 50px;
+  width: 230px;
+  height: 55px;
   font-size: 20px;
   background-color: #3D7DCA;
   font-family: 'Press Start 2P', cursive;
@@ -51,6 +52,8 @@ color: white;
   transition: background-color 0.3s;
 }
 
-.poke-button:hover {
+.poke-button:hover,
+.poke-button:focus {
   background-color: #003A70;
+  cursor: pointer;
 }
