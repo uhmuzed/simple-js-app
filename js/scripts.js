@@ -1,42 +1,6 @@
 let pokeRepository = (function () {
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  let pokemonList = [
-  {
-    name: "Dedenne",
-    dexNumber: 702,
-    type: ["Electric", "Fairy"],
-    category: "Antenna",
-    height: 0.08
-  },
-  {
-    name: "Volcanion",
-    dexNumber: 721,
-    type: ["Fire", "Water"],
-    category: "Steam",
-    height: 5.07
-  },
-  {
-    name: "Obstagoon",
-    dexNumber: 862,
-    type: ["Dark", "Normal"],
-    category: "Blocking",
-    height: 5.03
-  },
-  {
-    name: "Zacian",
-    dexNumber: 888,
-    type: ["Fairy", "Steel"],
-    category: "Warrior",
-    height: 9.02
-  },
-  {
-    name: "Zamazenta",
-    dexNumber: 889,
-    type: ["Fighting", "Steel"],
-    category: "Warrior",
-    height: 9.06
-  }
-];
+  let pokemonList = [];
 
 function add(pokemon) {
   if (
@@ -82,21 +46,32 @@ function showPokeInfo(pokemon) {
   console.log(pokemon);
 }
 
+function loadList() {
+  return fetch(apiUrl).then(function(response) {
+    return response.json();
+  }).then(function(json) {
+    json.results.forEach(function(item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function(e) {
+    console.error(e);
+  })
+}
+
 return {
   add: add,
   getAll: getAll,
-  addDexEntry: addDexEntry
+  addDexEntry: addDexEntry,
+  loadList: loadList
 };
 })();
 
-pokeRepository.add({
-  name: "Pidgey",
-  dexNumber: 16,
-  type: ["Normal", "Flying"],
-  category: "Tiny Bird",
-  height: 1.00
-});
-
-pokeRepository.getAll().forEach(function(pokemon) {
-  pokeRepository.addDexEntry(pokemon);
+pokepokeRepository.loadList().then(function() {
+  pokeRepository.getAll().forEach(function(pokemon) {
+    pokeRepository.addDexEntry(pokemon);
+  });
 });
