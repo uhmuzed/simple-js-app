@@ -66,9 +66,8 @@ function loadDetails(item) {
     item.height = details.height;
     item.types = details.types;
   }).catch(function(e) {
-    console.error(e) {
+    console.error(e);
     });
-  })
 }
 
 //showing the information when click
@@ -87,7 +86,7 @@ return {
 };
 })();
 
-pokepokeRepository.loadList().then(function() {
+pokeRepository.loadList().then(function() {
   pokeRepository.getAll().forEach(function(pokemon) {
     pokeRepository.addDexEntry(pokemon);
   });
