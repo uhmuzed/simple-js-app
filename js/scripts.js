@@ -56,15 +56,15 @@ function loadList() {
 }
 
 //adding details to Pokemon
-function loadDetails(item) {
-  let url = item.detailsUrl;
+function loadDetails(poke) {
+  let url = poke.detailsUrl;
   return fetch(url).then(function(response) {
     return response.json();
   }).then(function(details) {
     //add details to items
-    item.imageUrl = details.sprites.front_default;
-    item.height = details.height;
-    item.types = details.types;
+    poke.imageUrl = details.sprites.front_default;
+    poke.height = details.height;
+    poke.types = details.types;
   }).catch(function(e) {
     console.error(e);
     });
