@@ -1,16 +1,12 @@
 let pokeRepository = (function () {
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
   let pokemonList = [];
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
 function add(pokemon) {
   if (
     typeof pokemon === "object" &&
     "name" in pokemon &&
-    "dexNumber" in pokemon &&
-    "type" in pokemon &&
-    "category" in pokemon &&
-    "height" in pokemon
-  ) {
+    "detailsUrl" in pokemon) {
     pokemonList.push(pokemon);
   } else {
     console.log("Incorrect input");
@@ -42,10 +38,7 @@ function addDexEntry(pokemon) {
   })
 }
 
-function showPokeInfo(pokemon) {
-  console.log(pokemon);
-}
-
+//fetching data from api and using promise
 function loadList() {
   return fetch(apiUrl).then(function(response) {
     return response.json();
@@ -62,11 +55,35 @@ function loadList() {
   })
 }
 
+//adding details to Pokemon
+function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then(function(response) {
+    return response.json();
+  }).then(function(details) {
+    //add details to items
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  }).catch(function(e) {
+    console.error(e) {
+    });
+  })
+}
+
+//showing the information when click
+function showPokeInfo(pokemon) {
+  loadDetails(pokemon).then(function() {
+    console.log(pokemon);
+  });
+}
+
 return {
   add: add,
   getAll: getAll,
   addDexEntry: addDexEntry,
-  loadList: loadList
+  loadList: loadList,
+  loadDetails: loadDetails
 };
 })();
 
