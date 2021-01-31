@@ -1,4 +1,5 @@
 let pokeRepository = (function () {
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
   let pokemonList = [
   {
     name: "Dedenne",
