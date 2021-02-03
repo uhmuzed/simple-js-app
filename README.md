@@ -1,11 +1,11 @@
-#Simple JavaScript Pokedex app
+# Simple JavaScript Pokedex app
 
-##Overview
+## Overview
 HTML/CSS/Pure JS written app that features modal UI to interact with Pokemon data fetched from API.
 Simply open the project, click on the name of a Pokemon and the details will appear.
 
-##Requirements
+## Requirements
 JavaScript must be enabled on the browser.
 
-##Resources
-API used: "https://pokeapi.co/api/v2/pokemon/?limit=150"
+## Resources
+[API used link] (https://pokeapi.co/api/v2/pokemon/?limit=150)
