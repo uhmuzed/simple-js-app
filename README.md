@@ -8,4 +8,4 @@ Simply open the project, click on the name of a Pokemon and the details will app
 JavaScript must be enabled on the browser.
 
 ## Resources
-[API used link] (https://pokeapi.co/api/v2/pokemon/?limit=150)
+[API used link](https://pokeapi.co/api/v2/pokemon/?limit=150)
